@@ -20,7 +20,7 @@ app.use('/api', productosRuta);
 
 //routes
 app.get("/", (req, res) => {
-    res.send("API REST hola");
+    res.send("API REST");
 });
 
 // mongodb connection 
