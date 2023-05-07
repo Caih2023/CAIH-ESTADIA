@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 // Online: process.env.MONGODBURI
 
 mongoose
-    .connect(process.env.MONGODBURI)
+    .connect(process.env. MONGODBURI)
     .then(() => console.log("connected to MongoDB Atlas"))
     .catch((error) => console.log(error));
 
