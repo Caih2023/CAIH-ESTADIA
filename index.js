@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 
 // Rutas
 app.get("/", (req, res) => {
-    res.send("API REST");
+    res.send("API REST Estadias CAIH");
 });
 
 app.use('/api', usuariosRuta);
