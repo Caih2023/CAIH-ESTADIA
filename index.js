@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const cors = require('cors');
-const productosRuta = require("./src/routes/productos");
 const usuariosRuta = require("./src/routes/usuarios");
 const reportesCivicosRutas = require("./src/routes/reportesCivicos");
 const recorridosRutas = require("./src/routes/recorridosVirtuales");
@@ -27,7 +26,6 @@ app.get("/", (req, res) => {
     res.send("API REST");
 });
 
-app.use('/api', productosRuta);
 app.use('/api', usuariosRuta);
 app.use('/api', reportesCivicosRutas);
 app.use('/api', recorridosRutas);
