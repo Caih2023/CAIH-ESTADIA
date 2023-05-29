@@ -20,7 +20,7 @@ const productoSchema = mongoose.Schema({
     imagen: {
         type: String,
         required: true
-    },
+    }
 });
 
 module.exports = mongoose.model('productos', productoSchema);

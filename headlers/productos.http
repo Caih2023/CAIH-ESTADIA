@@ -1,0 +1,111 @@
+//productos//
+
+###
+//insertar producto
+POST http://localhost:3000/api/productos HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Blusas Bordado Floral Bohemio",
+    "precio": "230",
+    "descripcion": "cuello scoop bajo con volante, Bordado, Lazo",
+    "existencia":"51",
+    "imagen": "https://img.ltwebstatic.com/images3_pi/2021/05/17/1621237258d3556ac7d70b69af4fe2af1bfc2c2803_thumbnail_600x.webp"
+}
+
+
+
+###
+//Mostrar todos los productos
+GET http://localhost:3000/api/products HTTP/1.1
+
+
+###
+//Buscar los productos por id
+GET http://localhost:3000/api/products/6408c24f3823f5b445db7102 HTTP/1.1
+
+###
+//modificar productos
+PUT http://localhost:3000/api/products/6408c24f3823f5b445db7102 HTTP/1.1
+Content-Type: application/json
+
+
+{
+    "nombre": "motor a pasos",
+    "precio": "75",
+    "Imagen": "motor.png",
+    "Descripcion": "motor de 5v",
+    "Existencias":"10",
+    "Categoria":"motor"
+}
+
+###
+//eliminar los productos
+DELETE  http://localhost:3000/api/products/6408c550e0220ea90b60f25d HTTP/1.1
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////RUTAS ONLINE///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+###
+//insertar producto
+POST https://proyectonuevo-vercel.vercel.app/api/products HTTP/1.1
+Content-Type: application/json
+
+
+{
+    "nombre": "Transistores",
+    "precio": "22",
+    "Imagen": "Transistores.png",
+    "Descripcion": "Transistores",
+    "Existencias":"50",
+    "Categoria":"Transistores"
+}
+
+###
+//Mostrar todos los productos
+GET https://proyectonuevo-vercel.vercel.app/api/products HTTP/1.1
+
+
+###
+//Buscar los productos por id
+GET https://proyectonuevo-vercel.vercel.app/api/products/640a74b2cb4901599f343321 HTTP/1.1
+
+###
+//modificar productos
+PUT https://proyectonuevo-vercel.vercel.app/api/products/6408c24f3823f5b445db7102 HTTP/1.1
+Content-Type: application/json
+
+
+{
+    "nombre": "Resistencia",
+    "precio": "1.5",
+    "Imagen": "resistencia3.3ohm.png",
+    "Descripcion": "Son circuitos digitales que incluyen un microprocesador, usualmente de pequeñas prestaciones, pero que también tienen otros elementos que les permiten funcionar de forma autónoma y se enfocan a realizar una tarea o un conjunto de tareas sencillas y repetitivas.",
+    "Existencias":"22",
+    "Categoria":"resistencia"
+}
+
+###
+//eliminar los productos
+DELETE  https://proyectonuevo-vercel.vercel.app/api/products/6408c24f3823f5b445db7102 HTTP/1.1
+
+
+###
+POST https://proyectonuevo-vercel.vercel.app/api/products HTTP/1.1
+Content-Type: application/json
+
+
+{
+    "nombre": "Transistores",
+        "descripcion": "Transistores",
+        "imagen": "Transistores.png",
+        "precio": 22,
+        "sabor": "dulce",
+        "presentacion": "muy buena",
+        "existencias": 5
+}
+
+###
+//Buscar los productos por id
+PUT https://proyectonuevo-vercel.vercel.app/api/products/6408c24f3823f5b445db7102/decrement
