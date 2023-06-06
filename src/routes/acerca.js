@@ -4,7 +4,7 @@ const acercasSchema = require('../models/acerca');
 const router = express.Router();
 
 //insertar un recorridos
-router.post("acercas", (req, res) => {
+router.post("/acercas", (req, res) => {
     const acercas = acercasSchema(req.body);
     acercas
         .save()
@@ -14,7 +14,7 @@ router.post("acercas", (req, res) => {
 
 
 //Obtener todos los recorridos
-router.get("acercas", (req, res) => {
+router.get("/acercas", (req, res) => {
     acercasSchema
         .find()
         .then((data) => res.json(data))

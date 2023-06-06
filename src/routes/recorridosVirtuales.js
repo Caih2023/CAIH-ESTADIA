@@ -4,7 +4,7 @@ const recorridosVirtualesSchema = require('../models/recorridosVirtuales');
 const router = express.Router();
 
 //insertar un recorridos
-router.post("acerca", (req, res) => {
+router.post("/recorridos", (req, res) => {
     const recorridos = recorridosVirtualesSchema(req.body);
     recorridos
         .save()
@@ -14,7 +14,7 @@ router.post("acerca", (req, res) => {
 
 
 //Obtener todos los recorridos
-router.get("acerca", (req, res) => {
+router.get("/recorridos", (req, res) => {
     recorridosVirtualesSchema
         .find()
         .then((data) => res.json(data))
@@ -22,7 +22,7 @@ router.get("acerca", (req, res) => {
 });
 
 //Obtener solo un recorrido por su id
-router.get("/acerca/:id", (req, res) => {
+router.get("/recorridos/:id", (req, res) => {
     const { id } = req.params;
     recorridosVirtualesSchema
         .findById(id)
@@ -31,7 +31,7 @@ router.get("/acerca/:id", (req, res) => {
 });
 
 //Actualizar recorrido
-router.put("/acerca/:id", (req, res) => {
+router.put("/recorridos/:id", (req, res) => {
     const { id } = req.params;
     const { tituloPoint, informacionH, coordenadas, galeria, autorPointer } = req.body;
     recorridosVirtualesSchema
@@ -41,7 +41,7 @@ router.put("/acerca/:id", (req, res) => {
 });
 
 //Eliminar un recorrido
-router.delete("/acerca/:id", (req, res) => {
+router.delete("/recorridos/:id", (req, res) => {
     const { id } = req.params;
     recorridosVirtualesSchema
         .deleteOne({ _id: id })

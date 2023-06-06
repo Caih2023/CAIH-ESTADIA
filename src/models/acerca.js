@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 
-const acercasSchema = mongoose.Schema({
+const acercaSchema = mongoose.Schema({
     titulo: {
         type: String,
-        required: true,
+        required: true
     },
     descripcion: {
         type: String,
         required: true
     },
-    fondo: {
+    imagen: {
         type: String,
         required: true
     },
 });
 
-module.exports = mongoose.model('acercas', acercasSchema);
+module.exports = mongoose.model('acercas', acercaSchema);

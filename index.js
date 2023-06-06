@@ -14,14 +14,6 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Middleware para habilitar CORS
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-});
-
 // Rutas
 app.get("/", (req, res) => {
     res.send("API PARA CAIH");
@@ -34,7 +26,7 @@ app.use('/api', acercaRutas);
 
 // Conexión a MongoDB
 mongoose
-    .connect(process.env.MONGODBLOCAL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(process.env.MONGODBLURL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Conectado a MongoDB Atlas"))
     .catch((error) => console.log("Error al conectar a MongoDB:", error));
 
