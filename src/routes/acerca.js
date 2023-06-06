@@ -1,12 +1,12 @@
 const express = require('express');
-const acercaSchema = require('../models/acerca');
+const acercasSchema = require('../models/acerca');
 
 const router = express.Router();
 
 //insertar un recorridos
-router.post("acerca", (req, res) => {
-    const acerca = acercaSchema(req.body);
-    acerca
+router.post("acercas", (req, res) => {
+    const acercas = acercasSchema(req.body);
+    acercas
         .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -14,36 +14,36 @@ router.post("acerca", (req, res) => {
 
 
 //Obtener todos los recorridos
-router.get("acerca", (req, res) => {
-    acercaSchema
+router.get("acercas", (req, res) => {
+    acercasSchema
         .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
 
 //Obtener solo un recorrido por su id
-router.get("/acerca/:id", (req, res) => {
+router.get("/acercas/:id", (req, res) => {
     const { id } = req.params;
-    acercaSchema
+    acercasSchema
         .findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
 
 //Actualizar recorrido
-router.put("/acerca/:id", (req, res) => {
+router.put("/acercas/:id", (req, res) => {
     const { id } = req.params;
     const { titulo, descripcion, fondo } = req.body;
-    acercaSchema
+    acercasSchema
         .updateOne({ _id: id }, { $set: { titulo, descripcion, fondo } })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
 
 //Eliminar un recorrido
-router.delete("/acerca/:id", (req, res) => {
+router.delete("/acercas/:id", (req, res) => {
     const { id } = req.params;
-    acercaSchema
+    acercasSchema
         .deleteOne({ _id: id })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
