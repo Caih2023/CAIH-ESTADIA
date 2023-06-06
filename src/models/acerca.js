@@ -12,7 +12,7 @@ const acercasSchema = mongoose.Schema({
     fondo: {
         type: String,
         required: true
-    }
+    },
 });
 
 module.exports = mongoose.model('acercas', acercasSchema);
