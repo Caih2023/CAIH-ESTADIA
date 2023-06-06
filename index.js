@@ -5,6 +5,7 @@ const cors = require('cors');
 const usuariosRuta = require("./src/routes/usuarios");
 const reportesCivicosRutas = require("./src/routes/reportesCivicos");
 const recorridosRutas = require("./src/routes/recorridosVirtuales");
+const acercaRutas = require("./src/routes/acerca");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
 app.use('/api', usuariosRuta);
 app.use('/api', reportesCivicosRutas);
 app.use('/api', recorridosRutas);
+app.use('/api', acercaRutas);
 
 // Conexión a MongoDB
 mongoose

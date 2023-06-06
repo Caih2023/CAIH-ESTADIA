@@ -1,12 +1,12 @@
 const express = require('express');
-const recorridosVirtualesSchema = require('../models/recorridosVirtuales');
+const acercaSchema = require('../models/acerca');
 
 const router = express.Router();
 
 //insertar un recorridos
 router.post("acerca", (req, res) => {
-    const recorridos = recorridosVirtualesSchema(req.body);
-    recorridos
+    const acerca = acercaSchema(req.body);
+    acerca
         .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -15,7 +15,7 @@ router.post("acerca", (req, res) => {
 
 //Obtener todos los recorridos
 router.get("acerca", (req, res) => {
-    recorridosVirtualesSchema
+    acercaSchema
         .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -24,7 +24,7 @@ router.get("acerca", (req, res) => {
 //Obtener solo un recorrido por su id
 router.get("/acerca/:id", (req, res) => {
     const { id } = req.params;
-    recorridosVirtualesSchema
+    acercaSchema
         .findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -33,9 +33,9 @@ router.get("/acerca/:id", (req, res) => {
 //Actualizar recorrido
 router.put("/acerca/:id", (req, res) => {
     const { id } = req.params;
-    const { tituloPoint, informacionH, coordenadas, galeria, autorPointer } = req.body;
-    recorridosVirtualesSchema
-        .updateOne({ _id: id }, { $set: { tituloPoint, informacionH, coordenadas, galeria, autorPointer } })
+    const { titulo, descripcion, fondo } = req.body;
+    acercaSchema
+        .updateOne({ _id: id }, { $set: { titulo, descripcion, fondo } })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
@@ -43,7 +43,7 @@ router.put("/acerca/:id", (req, res) => {
 //Eliminar un recorrido
 router.delete("/acerca/:id", (req, res) => {
     const { id } = req.params;
-    recorridosVirtualesSchema
+    acercaSchema
         .deleteOne({ _id: id })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
