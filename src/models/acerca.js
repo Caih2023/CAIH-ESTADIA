@@ -16,4 +16,4 @@ const acercaSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('acerca', acercaSchema);
+module.exports = mongoose.model('acercas', acercaSchema);
