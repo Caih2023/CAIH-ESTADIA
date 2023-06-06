@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
-const acercaSchema = mongoose.Schema({
+const acercasSchema = mongoose.Schema({
     titulo: {
         type: String,
         required: true,
-        unique: true
     },
     descripcion: {
         type: String,
@@ -16,4 +15,4 @@ const acercaSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('acercas', acercaSchema);
+module.exports = mongoose.model('acercas', acercasSchema);
