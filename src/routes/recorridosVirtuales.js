@@ -33,9 +33,9 @@ router.get("/recorridos/:id", (req, res) => {
 //Actualizar recorrido
 router.put("/recorridos/:id", (req, res) => {
     const { id } = req.params;
-    const { tituloPoint, informacionH, coordenadas, galeria, autorPointer } = req.body;
+    const { tituloPoint, informacionH, resumen, coordenadas, galeria, autorPointer } = req.body;
     recorridosVirtualesSchema
-        .updateOne({ _id: id }, { $set: { tituloPoint, informacionH, coordenadas, galeria, autorPointer } })
+        .updateOne({ _id: id }, { $set: { tituloPoint, informacionH, resumen, coordenadas, galeria, autorPointer } })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });

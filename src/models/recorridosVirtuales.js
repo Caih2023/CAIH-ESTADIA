@@ -9,6 +9,10 @@ const recorridosVirtualesSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    resumen: {
+        type: String,
+        required: true
+    },
     coordenadas: {
         type: {
             type: String,
