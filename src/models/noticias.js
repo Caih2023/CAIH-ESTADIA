@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 const noticiasSchema = mongoose.Schema({
     titulo: {
@@ -21,6 +22,13 @@ const noticiasSchema = mongoose.Schema({
         type: 'Date',
         required: true
     }
-})
+});
+
+noticiasSchema.pre('save', function (next) {
+    if (this.fecha && typeof this.fecha === 'string') {
+        this.fecha = moment(this.fecha, 'DD/MM/YYYY').toDate();
+    }
+    next();
+});
 
 module.exports = mongoose.model('noticias', noticiasSchema)
