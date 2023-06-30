@@ -2,23 +2,23 @@ const mongoose = require('mongoose');
 
 const noticiasSchema = mongoose.Schema({
     titulo: {
-        type: 'string',
+        type: 'String',
         required: true
     },
     informacion: {
-        type: 'string',
+        type: 'String',
         required: true
     },
     resumen: {
-        type: 'string',
+        type: 'String',
         required: true
     },
     galeria: {
-        type: 'string',
+        type: 'String',
         required: true
     },
     fecha: {
-        type: 'date',
+        type: 'Date',
         required: true
     }
 })
