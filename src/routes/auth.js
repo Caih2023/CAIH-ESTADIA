@@ -6,10 +6,10 @@ const User = require('../models/usuario');
 
 // Validación de entrada del correo
 router.post('/login', async (req, res) => {
-    const { correo, password } = req.body;
+    const { correo, contraseña } = req.body;
 
-    if (!correo || !password) {
-        return res.status(400).json({ error: 'Debes proporcionar el nombre de correo y una contraseña' });
+    if (!correo || !contraseña) {
+        return res.status(400).json({ error: 'Debes proporcionar un correo y una contraseña' });
     }
 
     if (!validator.validate(correo)) {
@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'El correo o la contraseña son incorrectos' });
         }
 
-        const isPasswordCorrect = await bcrypt.compare(password, user.password);
+        const isPasswordCorrect = await bcrypt.compare(contraseña, user.contraseña);
 
         if (!isPasswordCorrect) {
             return res.status(401).json({ error: 'El correo o la contraseña son incorrectos' });
