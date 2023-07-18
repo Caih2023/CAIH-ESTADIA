@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
 const validator = require('email-validator');
 const User = require('../models/usuario');
 
@@ -23,9 +22,8 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'El correo o la contraseña son incorrectos' });
         }
 
-        const isPasswordCorrect = await bcrypt.compare(contraseña, user.contraseña);
-
-        if (!isPasswordCorrect) {
+        // Comparación de contraseñas sin bcrypt
+        if (contraseña !== user.contraseña) {
             return res.status(401).json({ error: 'El correo o la contraseña son incorrectos' });
         }
 
