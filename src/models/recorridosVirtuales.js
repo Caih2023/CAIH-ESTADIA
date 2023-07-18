@@ -25,7 +25,7 @@ const recorridosVirtualesSchema = mongoose.Schema({
         }
     },
     galeria: {
-        type: String,
+        type: [String],
         required: true
     },
     autorPointer: {

@@ -36,6 +36,18 @@ const usuarioSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    usuario: {
+        type: String,
+        required: true
+    },
+    contraseña: {
+        type: String,
+        required: true
+    },
+    roles: {
+        type: String,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('usuarios', usuarioSchema);

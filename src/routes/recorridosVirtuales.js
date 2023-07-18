@@ -3,14 +3,15 @@ const recorridosVirtualesSchema = require('../models/recorridosVirtuales');
 
 const router = express.Router();
 
-//insertar un recorridos
+// Insertar un recorrido
 router.post("/recorridos", (req, res) => {
-    const recorridos = recorridosVirtualesSchema(req.body);
-    recorridos
+    const recorrido = new recorridosVirtualesSchema(req.body); // Crear una instancia del modelo
+    recorrido
         .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
+
 
 
 //Obtener todos los recorridos

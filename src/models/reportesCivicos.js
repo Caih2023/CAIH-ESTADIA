@@ -10,7 +10,7 @@ const reportesCivicosSchema = mongoose.Schema({
         required: true
     },
     foto: {
-        type: String,
+        type: [String],
         required: true
     },
     coordenadas: {
@@ -26,4 +26,4 @@ const reportesCivicosSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('ReporteCivico', reportesCivicosSchema);
+module.exports = mongoose.model('reporteCivicos', reportesCivicosSchema);

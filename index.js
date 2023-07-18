@@ -36,7 +36,7 @@ app.use('/api', noticiasRutas);
 
 // Conexión a MongoDB
 mongoose
-    .connect(process.env.MONGODBURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(process.env.MONGODBLOCAL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Conectado a MongoDB Atlas"))
     .catch((error) => console.log("Error al conectar a MongoDB:", error));
 

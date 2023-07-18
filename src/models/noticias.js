@@ -15,7 +15,7 @@ const noticiasSchema = mongoose.Schema({
         required: true
     },
     galeria: {
-        type: 'String',
+        type: [String],
         required: true
     },
     fecha: {
