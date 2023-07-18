@@ -33,9 +33,9 @@ router.get("/usuarios/:id", (req, res) => {
 //Actualizar usuarios
 router.put("/usuarios/:id", (req, res) => {
     const { id } = req.params;
-    const { nombre, apellidoP, apellidoM, fechaN, tituloMEstudios, trabajoA, proyectoP, publicaciones, imagen } = req.body;
+    const { nombre, apellidoP, apellidoM, fechaN, tituloMEstudios, trabajoA, proyectoP, publicaciones, imagen, usuario, contraseña, roles } = req.body;
     usuariosSchema
-        .updateOne({ _id: id }, { $set: { nombre, apellidoP, apellidoM, fechaN, tituloMEstudios, trabajoA, proyectoP, publicaciones, imagen } })
+        .updateOne({ _id: id }, { $set: { nombre, apellidoP, apellidoM, fechaN, tituloMEstudios, trabajoA, proyectoP, publicaciones, imagen, usuario, contraseña, roles } })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
