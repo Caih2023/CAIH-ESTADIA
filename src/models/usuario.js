@@ -17,6 +17,10 @@ const usuarioSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    correo: {
+        type: String,
+        required: true
+    },
     tituloMEstudios: {
         type: String,
         required: true

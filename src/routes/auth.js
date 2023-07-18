@@ -4,36 +4,36 @@ const bcrypt = require('bcrypt');
 const validator = require('email-validator');
 const User = require('../models/usuario');
 
-// Validación de entrada del usuario
+// Validación de entrada del correo
 router.post('/login', async (req, res) => {
-    const { usuario, password } = req.body;
+    const { correo, password } = req.body;
 
-    if (!usuario || !password) {
-        return res.status(400).json({ error: 'Debes proporcionar el nombre de usuario y una contraseña' });
+    if (!correo || !password) {
+        return res.status(400).json({ error: 'Debes proporcionar el nombre de correo y una contraseña' });
     }
 
-    if (!validator.validate(usuario)) {
-        return res.status(400).json({ error: 'El usuario proporcionado no es válido' });
+    if (!validator.validate(correo)) {
+        return res.status(400).json({ error: 'El correo proporcionado no es válido' });
     }
 
     try {
-        const user = await User.findOne({ usuario });
+        const user = await User.findOne({ correo });
 
         if (!user) {
-            return res.status(401).json({ error: 'El usuario o la contraseña son incorrectos' });
+            return res.status(401).json({ error: 'El correo o la contraseña son incorrectos' });
         }
 
         const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
         if (!isPasswordCorrect) {
-            return res.status(401).json({ error: 'El usuario o la contraseña son incorrectos' });
+            return res.status(401).json({ error: 'El correo o la contraseña son incorrectos' });
         }
 
-        // Devuelve solo la información necesaria del usuario
+        // Devuelve solo la información necesaria del correo
         return res.json({
             userId: user._id,
             nombre: user.nombre,
-            usuario: user.usuario,
+            correo: user.correo,
             rol: user.roles
         });
 
