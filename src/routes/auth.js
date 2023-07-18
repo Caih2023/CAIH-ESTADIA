@@ -6,9 +6,9 @@ const User = require('../models/usuario');
 
 // Validación de entrada del usuario
 router.post('/login', async (req, res) => {
-    const { usuario, password: contraseña } = req.body;
+    const { usuario, password } = req.body;
 
-    if (!usuario || !contraseña) {
+    if (!usuario || !password) {
         return res.status(400).json({ error: 'Debes proporcionar el nombre de usuario y una contraseña' });
     }
 
@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'El usuario o la contraseña son incorrectos' });
         }
 
-        const isPasswordCorrect = await bcrypt.compare(contraseña, user.password);
+        const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
         if (!isPasswordCorrect) {
             return res.status(401).json({ error: 'El usuario o la contraseña son incorrectos' });
@@ -34,7 +34,6 @@ router.post('/login', async (req, res) => {
             userId: user._id,
             nombre: user.nombre,
             usuario: user.usuario,
-            password: user.contraseña,
             rol: user.roles
         });
 
