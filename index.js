@@ -7,7 +7,7 @@ const reportesCivicosRutas = require("./src/routes/reportesCivicos");
 const recorridosRutas = require("./src/routes/recorridosVirtuales");
 const acercaRutas = require("./src/routes/acerca");
 const noticiasRutas = require("./src/routes/noticias");
-
+const loginRutas = require("./src/routes/auth")
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -33,10 +33,11 @@ app.use('/api', reportesCivicosRutas);
 app.use('/api', recorridosRutas);
 app.use('/api', acercaRutas);
 app.use('/api', noticiasRutas);
+app.use('/api', loginRutas)
 
 // Conexión a MongoDB
 mongoose
-    .connect(process.env.MONGODBLOCAL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(process.env.MONGODBURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Conectado a MongoDB Atlas"))
     .catch((error) => console.log("Error al conectar a MongoDB:", error));
 
